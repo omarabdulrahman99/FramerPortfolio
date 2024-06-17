@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans")
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat')
+
+:root
+  --t1:1s
+  --t11:4s
+  --t2:2s
+  --t21:3s
+
+.container
+  width: 550px
+  height: 100%
+  color: #333
+  font-size: 2em
+  display: flex
+  flex-direction: column
+  align-items: center
+  line-height: 0.8
+  .wordiconcontainer
+    margin-top:2em
+    width: 100%
+    font-family: moret
+    .griddouble
+      margin: 60px auto 0 auto 
+      height: 400px
+      width:450px
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 1fr 1fr
+      >div
+        background-repeat: no-repeat
+        background-size: contain
+        border: 5px solid #262626
+        background-color: rgba(255, 255, 255, 0.2)
+        backdrop-filter: blur(20px)
+      div:hover
+        cursor: pointer
+        border-width: 25px
+        animation: none
+        border-color: #ffb3d9
+        .icon
+          font-size: 36px
+      .topleft
+        background-image: url('https://i.imgur.com/as8wIvy.png')
+        background-position: right bottom
+        animation: floatupleft 7s ease-in-out infinite
+        border-bottom: none
+        border-right: none
+        >div
+          position: absolute
+          left: 5px
+          top: 5px
+        [data-icon]
+          margin-left: 5px
+      .topright
+        background-image: url('https://i.imgur.com/Pku9gpB.png')
+        background-position: left bottom
+        animation: floatupright 7s ease-in-out infinite
+        border-left: none
+        border-bottom: none
+        >div
+          position: absolute
+          right: 5px
+          top: 5px
+        [data-icon]
+          margin-right: 5px
+      .bottomleft
+        background-image: url('https://i.imgur.com/gqQvuO4.png')
+        animation: floatdownleft 7s ease-in-out infinite
+        border-right: none
+        border-top: none
+        >div
+          position: absolute
+          bottom: 5px
+          left: 5px
+        [data-icon]
+          margin-left: 5px
+      .bottomright
+        background-image: url('https://i.imgur.com/PM7UKHG.png')
+        animation: floatdownright 7s ease-in-out infinite
+        border-left: none
+        border-top: none
+        >div
+          position: absolute
+          bottom:5px
+          right: 5px
+        [data-icon]
+          margin-right: 5px
+    .word-container
+      color: #262626
+      &:hover
+        color: #ff007f
+      .artcont
+        position: relative
+        img
+          position: absolute
+          width: 2em
+          right: 1.55em
+          top: -0.16em
+          opacity: 0
+          clip-path: inset(95% 0% 0% 0%)
+          animation: 3s ease-in 2s rose-in forwards
+        .img-back
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+      .word
+        cursor: pointer
+        filter: drop-shadow(5px 5px 50px white)
+      .word
+        &:nth-child(1)
+          text-transform: uppercase
+          font-size: 1em
+        &:nth-child(3n + 2)
+          color: white
+          text-transform: uppercase
+          animation: slide-left var(--t1) ease-out 1 forwards, slide-left2 var(--t11) var(--t1) linear 1 forwards
+          font-size: 2.5em
+        &:nth-child(3n)
+          text-transform: uppercase
+          animation: slide-right var(--t2) ease-out 1 forwards, slide-right2 var(--t21) var(--t2) linear 1 forwards
+          font-size: 3em
+  .wave
+    background: rgb(255 255 255 / 25%)
+    border-radius: 1000% 1000% 0 0
+    position: fixed
+    width: 200%
+    height: 12em
+    animation: wave 10s -3s linear infinite
+    transform: translate3d(0, 0, 0)
+    opacity: 0.8
+    bottom: 0
+    left: 0
+    z-index: -1
+    &:nth-of-type(2)
+      bottom: -1.25em
+      animation: wave 18s linear reverse infinite
+      opacity: 0.8
+    &:nth-of-type(3)
+      bottom: -2.5em
+      animation: wave 20s -1s reverse infinite
+      opacity: 0.9
+  .content
+    width: 100%
+    height: 550px
+    background: rgba(255, 255, 255, 0.2)
+    backdrop-filter: blur(10px)
+    border-radius: 16px
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+    border: 1px solid rgba(255, 255, 255, 0.3)
+    margin-top: 2em
+    margin-bottom: 2em
+    padding: 20px
+    text-align: center
+    justify-content: center
+    line-height: normal
+    position: relative
+    overflow-y: auto
+    overflow-x: hidden
+
+@keyframes slide-right
+  from
+    transform: translateX(50px)
+
+  to
+    transform: translateX(-20px)
+
+@keyframes slide-right2
+  from
+    transform: translateX(-20px)
+
+  to
+    transform: translateX(-50px)
+
+@keyframes slide-left
+  from
+    transform: translateX(-50px)
+
+  to
+    transform: translateX(30px)
+
+@keyframes slide-left2
+  from
+    transform: translateX(30px)
+
+  to
+    transform: translateX(50px)
+
+@keyframes wave
+  2%
+    transform: translateX(1)
+  25%
+    transform: translateX(-25%)
+  50%
+    transform: translateX(-50%)
+  75%
+    transform: translateX(-25%)
+  100%
+    transform: translateX(1)
+
+@keyframes rose-in
+  0%
+    clip-path: inset(95% 0% 0% 0%)
+    opacity: 1
+  50%
+    clip-path: inset(65% 0% 0% 0%)
+    opacity: 1
+  70%
+    clip-path: inset(35% 0% 0% 0%)
+    opacity: 1
+  100%
+    clip-path: inset(0% 0% 0% 0%)
+    opacity: 1
+
+
+@keyframes floatupleft
+  0%
+    box-shadow: none
+    transform: translate(0px, 0px)
+  50%
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2)
+    transform: translate(-10px, -10px)
+  100%
+    transform: translate(0px, 0px)
+    box-shadow: none
+@keyframes floatupright
+  0%
+    box-shadow: none
+    transform: translate(0px, 0px)
+  50%
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2)
+    transform: translate(10px, -10px)
+  100%
+    transform: translate(0px, 0px)
+    box-shadow: none
+@keyframes floatdownright
+  0%
+    box-shadow: none
+    transform: translate(0px, 0px)
+  50%
+    box-shadow: 0 -5px 15px 0px rgba(0,0,0,0.2)
+    transform: translate(10px, 10px)
+  100%
+    box-shadow: none
+    transform: translate(0px, 0px)
+    box-shadow: none
+@keyframes floatdownleft
+  0%
+    box-shadow: none
+    transform: translate(0px, 0px)
+  50%
+    box-shadow: 0 -5px 15px 0px rgba(0,0,0,0.2)
+    transform: translate(-10px, 10px)
+  100%
+    transform: translate(0px, 0px)
+    box-shadow: none
